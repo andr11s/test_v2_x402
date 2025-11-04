@@ -2,7 +2,7 @@ import express from 'express';
 import { paymentMiddleware, RoutesConfig } from 'x402-express';
 
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 const privateSellerKey = process.env.PRIVATE_SELLER_KEY as string | undefined;
 if(!privateSellerKey) {
   throw new Error("PRIVATE_SELLER_KEY is not set");
@@ -28,6 +28,11 @@ app.use(paymentMiddleware(`0x${privateSellerKey}` , {
   url: privateFacilitatorKey as `${string}://${string}`,
  }
 ))
+
+// Healthcheck endpoint (no payment required)
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", timestamp: new Date().toISOString() });
+});
 
 app.get("/hello", (req, res) => {
   res.json({ message: "Hello World seller" });

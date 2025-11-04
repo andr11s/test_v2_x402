@@ -4,7 +4,7 @@
   "main": "seller/dist/index.js",
   "scripts": {
     "build": "cd seller && npm install && npm run build",
-    "start": "cd seller && npm start",
+    "start": "node seller/dist/index.js",
     "dev": "cd seller && npm run dev"
   },
   "engines": {

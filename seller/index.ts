@@ -1,9 +1,12 @@
 import express from 'express';
 import { paymentMiddleware, RoutesConfig } from 'x402-express';
+import dotenv from 'dotenv';
+dotenv.config();
+
 
 const app = express();
 const port = process.env.PORT || 3000;
-const privateSellerKey = process.env.PRIVATE_SELLER_KEY as string | undefined;
+const privateSellerKey = process.env.PRIVATE_SELLER_KEY;
 if(!privateSellerKey) {
   throw new Error("PRIVATE_SELLER_KEY is not set");
 }

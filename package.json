@@ -1,0 +1,16 @@
+{
+  "name": "x402-app",
+  "version": "1.0.0",
+  "main": "seller/dist/index.js",
+  "scripts": {
+    "build": "cd seller && npm install && npm run build",
+    "start": "cd seller && npm start",
+    "dev": "cd seller && npm run dev"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

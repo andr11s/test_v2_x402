@@ -23,7 +23,7 @@ if(!privateNetwork) {
 
 app.use(paymentMiddleware(`0x${privateSellerKey}` , {
   "GET /hello": {
-    price: "0.0001",
+    price: "0.001",
     network: privateNetwork as any,
   }, 
  },
